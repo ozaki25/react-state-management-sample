@@ -4,11 +4,19 @@ import { createSlice } from '@reduxjs/toolkit';
 export const todoSlice = createSlice({
   name: 'todo',
   initialState: {
+    inputText: '',
     todoList: [],
   },
   reducers: {
+    changeText(state, action) {
+      return {
+        ...state,
+        inputText: action.payload.inputText,
+      };
+    },
     add(state, action) {
       return {
+        ...state,
         todoList: [...state.todoList, { text: action.payload.text }],
       };
     },
@@ -16,9 +24,10 @@ export const todoSlice = createSlice({
 });
 
 // Actions
-export const { add } = todoSlice.actions;
+export const { changeText, add } = todoSlice.actions;
 
 // Selectors
+export const selectInputText = ({ todo }) => todo.inputText;
 export const selectTodoList = ({ todo }) => todo.todoList;
 
 // Reducer(must be default export)

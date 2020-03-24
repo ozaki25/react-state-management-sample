@@ -1,16 +1,15 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import useTodo from '../hooks/useTodo';
 
 function TodoList() {
-  const [inputText, setInputText] = useState('');
-  const { todoList, add } = useTodo();
+  const { inputText, todoList, changeText, add } = useTodo();
   const onChangeText = event => {
-    setInputText(event.target.value);
+    changeText(event.target.value);
   };
   const onClick = () => {
     add(inputText);
-    setInputText('');
+    changeText('');
   };
   return (
     <div>
