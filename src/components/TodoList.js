@@ -1,16 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-function Home() {
+function TodoList() {
   return (
     <div>
-      <h1>Home</h1>
+      <h1>TodoList</h1>
       <p>
+        <Link to="/">Homeへ</Link>
         <Link to="/counter">Counterへ</Link>
-        <Link to="/todo-list">TodoListへ</Link>
       </p>
     </div>
   );
 }
 
-export default Home;
+export default TodoList;
